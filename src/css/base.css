@@ -45,7 +45,6 @@ a {
 
 a:hover, a:focus {
   color: var(--color-text-primary);
-  text-decoration: underline;
 }
 
 /* Add Google Font Imports (ensure index.html includes the link) */

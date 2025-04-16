@@ -27,7 +27,11 @@
                 <ul class="navbar-links">
                     <li><a href="#hero" class="active">Inicio</a></li> <!-- Marcar inicio como activo por defecto -->
                     <li><a href="#lore">Lore</a></li>
+                    <li><a href="#personajes">Personajes</a></li>
+                    <li><a href="#zonas">Zonas</a></li>
+                    <li><a href="#citas">Citas</a></li>
                     <li><a href="#gallery">Galería</a></li>
+                    <li><a href="#teorias">Teorías</a></li>
                     <!-- Añadir más si es necesario -->
                 </ul>
             </nav>
@@ -51,12 +55,60 @@
             <div class="container">
                 <h2 class="section-title reveal">- LORE DE YHARNAM -</h2>
                 <div class="ui-panel reveal"> <!-- Panel para contener el texto del lore -->
-                    <h3 class="reveal">La Ciudad Maldita</h3>
-                    <p class="reveal">Yharnam, antaño célebre por su terapia de sangre milagrosa, ahora sucumbe a una plaga que transforma a sus habitantes en bestias. En esta noche interminable de Cacería, los Cazadores limpian las calles, pero horrores más profundos aguardan.</p>
-                    <h3 class="reveal">Los Grandes y la Iglesia</h3>
-                    <p class="reveal">La Iglesia de la Sanación, custodia de la sangre, busca conocimiento prohibido y la comunión con seres cósmicos conocidos como los Grandes. Sus experimentos han desatado fuerzas más allá de la comprensión humana, tejiendo una red de locura y revelaciones aterradoras.</p>
-                     <h3 class="reveal">El Sueño del Cazador</h3>
-                     <p class="reveal">Atrapado en el ciclo de la caza, encuentras refugio en el Sueño del Cazador, un nexo espectral. Guiado por la Muñeca y Gehrman, el Primer Cazador, debes desentrañar los misterios de Yharnam para hallar la forma de escapar... o trascender.</p>
+                    <h3 class="reveal">Los Ecos del Pasado</h3>
+                    <p class="reveal">Bajo la ciudad gótica de Yharnam yacen las ruinas de los Pthumerios, una civilización antigua que veneraba a los Grandes, seres cósmicos de otro plano. La academia de Byrgenwerth desenterró sus secretos y la Sangre Antigua, fuente de poder y perdición. Mientras el Maestro Willem abogaba por la lucidez interior — *"Teme a la sangre antigua"* —, su discípulo Laurence vio en la sangre la clave para la evolución.</p>
+                    <h3 class="reveal">La Iglesia y la Plaga</h3>
+                    <p class="reveal">Laurence fundó la Iglesia de la Sanación en Yharnam, prometiendo curas milagrosas mediante la sangre sanadora. Multitudes acudieron, pero la bendición se tornó maldición: la Plaga de bestias surgió, transformando a los ciudadanos en monstruos. Vieja Yharnam fue purgada con fuego en un intento desesperado por contenerla, un secreto oscuro guardado por la Iglesia y sus Cazadores, liderados inicialmente por Gehrman.</p>
+                    <h3 class="reveal">La Noche de la Cacería</h3>
+                    <p class="reveal">La Iglesia declaró la Noche de la Cacería, un ciclo de violencia donde los infectados se transforman y los cazadores purifican las calles. Facciones secretas como el Coro y la Escuela de Mensis buscaron el poder de los Grandes a través de experimentos atroces y rituales sacrílegos, rasgando el velo de la realidad y atrayendo la influencia de la Luna Roja.</p>
+                    <h3 class="reveal">El Sueño y la Sangre Pálida</h3>
+                    <p class="reveal">Para combatir los horrores crecientes, Laurence y Gehrman invocaron a la Presencia Lunar, un Gran que creó el Sueño del Cazador, un refugio onírico y una prisión para Gehrman. Como nuevo Cazador, llegas a Yharnam buscando la "Sangre Pálida", una cura enigmática. Atrapado en la Noche de la Cacería y guiado por el Sueño, deberás desentrañar la verdad tras la plaga, enfrentar a los Grandes y decidir el destino de Yharnam al romper (o perpetuar) el ciclo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section id="personajes" class="content-section reveal">
+            <div class="container">
+                <h2 class="section-title reveal">- PERSONAJES DESTACADOS -</h2>
+                <div class="ui-panel reveal">
+                    <div class="character-section-intro">
+                        <p>Conoce a los enigmáticos habitantes de Yharnam y a los cazadores que recorren sus calles. Cada uno tiene su propia historia, motivaciones y secretos en la noche de la cacería.</p>
+                    </div>
+                    <div class="character-grid" id="characterGrid">
+                        <!-- Character items will be populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zones Section -->
+        <section id="zonas" class="content-section reveal">
+            <div class="container">
+                <h2 class="section-title reveal">- ZONAS DE YHARNAM -</h2>
+                <div class="ui-panel reveal">
+                    <div class="zone-section-intro">
+                        <p>Explora los rincones más oscuros de Yharnam y sus alrededores, cada uno con su propia historia y secretos. Desde las calles góticas de Yharnam Central hasta las pesadillas más profundas, estos lugares guardan las claves del misterio de la sangre antigua.</p>
+                    </div>
+                    <div class="zone-grid" id="zoneGrid">
+                        <!-- Zone items will be populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quotes Section -->
+        <section id="citas" class="content-section reveal">
+            <div class="container">
+                <h2 class="section-title reveal">- ECOS DE SABIDURÍA -</h2>
+                <div class="quote-carousel-wrapper reveal">
+                    <div class="quote-carousel" id="quoteCarousel">
+                        <blockquote class="quote-text" id="quoteText">Cargando cita...</blockquote>
+                        <cite class="quote-attribution" id="quoteAttribution"></cite>
+                        <!-- Ornate borders will be handled by CSS -->
+                    </div>
+                    <button class="carousel-nav prev" id="quotePrev" aria-label="Cita anterior">&#x276E;</button>
+                    <button class="carousel-nav next" id="quoteNext" aria-label="Cita siguiente">&#x276F;</button>
                 </div>
             </div>
         </section>
@@ -103,6 +155,38 @@
                  <!-- </div> -->
             </div>
         </section>
+
+        <!-- Theories Section -->
+        <section id="teorias" class="content-section reveal">
+            <div class="container">
+                <h2 class="section-title reveal">- TEORÍAS Y CONJETURAS -</h2>
+                <div class="ui-panel reveal">
+                    <div class="theory-list"> <!-- Using a list container -->
+                        <div class="theory-item reveal">
+                            <h3 class="theory-title">La Sangre Pálida y el propósito del Cazador</h3>
+                            <p>Una de las mayores incógnitas del juego es qué es la "Sangre Pálida" que el Cazador debe buscar. Una teoría popular sugiere que la Sangre Pálida se refiere a la sangre de un Gran Uno o a la propia Luna pálida que aparece en el cielo. Según esta interpretación, "transcender la cacería" significa romper el ciclo alcanzando la presencia de un Gran (la Luna Paleblood). De hecho, en el final secreto, al consumir cordones umbilicales y vencer a la Presencia Lunar, el Cazador obtiene una forma de Gran Uno infantil: habría "encontrado" la Sangre Pálida en sí mismo, trascendiendo la humanidad. Otra variante de la teoría postula que la Sangre Pálida es la sangre de la propia Reina Yharnam (su sangre pálida habría iniciado la línea sanguínea de Yharnam) o incluso la sangre especial de Oedon (que es pálida porque es invisible). En cualquier caso, el consenso de la comunidad es que la frase enigmática guía al jugador a interactuar con fuerzas superiores (la Luna, los Grandes) para acabar con la noche.</p>
+                        </div>
+                        <div class="theory-item reveal">
+                            <h3 class="theory-title">La conexión entre la Muñeca y Lady María</h3>
+                            <p>Los jugadores han notado los fuertes paralelismos entre la Muñeca del Sueño del Cazador y Lady María de la Torre Astral (introducida en el DLC). La teoría sostiene que Gehrman creó la Muñeca a imagen de María, de quien estaba enamorado. Esto explica el parecido físico y por qué la Muñeca muestra emoción al recibir el broche de pelo del Taller Abandonado (que pertenecía a María). Algunos especulan que parte del 'espíritu' de María pudo pasar a la Muñeca cuando Gehrman invocó a la Presencia Lunar, lo que le dio vida. Aunque María está muerta en la pesadilla, su eco vive en la Muñeca como compañía para Gehrman. La Muñeca preguntándose si puede ser amada sugiere esa conexión trágica: fue creada por amor, pero no es la persona real. FromSoftware deja pistas sutiles (descripciones de objetos, reacciones) que hacen esta teoría ampliamente aceptada en la comunidad.</p>
+                        </div>
+                        <div class="theory-item reveal">
+                            <h3 class="theory-title">Gehrman, Laurence y la creación del Sueño del Cazador</h3>
+                            <p>No se explica explícitamente en el juego, pero la comunidad ha reconstruido los eventos previos: Tras desatarse la plaga de bestias, Laurence y Gehrman idearon usar el poder de un Gran Uno para controlar la situación. Reunieron cordones umbilicales (como los que el jugador encuentra) y realizaron un rito en el antiguo Taller. El resultado fue la invocación de la Presencia Lunar. La teoría establece que esta entidad creó el Sueño del Cazador como un plano seguro donde entrenar y revivir cazadores, y aprisionó a Gehrman como su guardián. Laurence aparentemente también participó, pero quizás fue devorado o quedó fuera del Sueño (luego su cráneo aparece en la realidad). Evidencia: en el Taller Abandonado hay un cordón umbilical con una nota sobre servir a un demonio en pesadilla, y el propio final secreto requiere 3 cordones para enfrentar a la Presencia Lunar. Es decir, replicar el ritual. Por tanto, la teoría explica que el Sueño es un invento artificial mantenido por la Presencia Lunar a petición de Gehrman/Laurence, pero que se volvió una trampa para Gehrman. Esto da contexto a por qué el jugador está atrapado en el bucle de cacería hasta derrotar a la Presencia Lunar.</p>
+                        </div>
+                         <div class="theory-item reveal">
+                            <h3 class="theory-title">El significado del final oculto (ascenso a Gran Uno)</h3>
+                            <p>El tercer final donde el cazador se transforma en un infante es deliberadamente críptico. La comunidad lo interpreta como el "final verdadero" en el que el Cazador logra escapar del ciclo de la cacería no al ser liberado, sino convirtiéndose en algo superior. Al derrotar a la Presencia Lunar tras consumir los cordones umbilicales (ecos de bebés de Grandes), el jugador 'absorbe' suficiente esencia de Gran Uno para metamorfosear. La teoría postula que el Cazador pasa a ser el nuevo infante de la Presencia Lunar (quizá reemplazando a Mergo). De hecho, la Muñeca lo toma en brazos como hacía la Nodriza con Mergo, y promete cuidarlo. Esto puede verse como una victoria agridulce: el cazador trasciende la humanidad (logrando el supuesto objetivo de Byrgenwerth, la evolución), pero pierde su forma y queda bajo el cuidado de la Muñeca. Algunos fans han notado que este final cierra el bucle de manera simbólica: al inicio el Cazador buscaba Sangre Pálida, al final *es* Sangre Pálida (un Gran recién nacido de color pálido). Es una recompensa a la curiosidad del jugador por obtener los secretos (los cordones). También se ha discutido si esto libera a Yharnam definitivamente o si simplemente rompe el trato con la Presencia Lunar y la cacería cesa, al menos hasta nueva orden.</p>
+                        </div>
+                         <div class="theory-item reveal">
+                            <h3 class="theory-title">La maldición de Kos y las Pesadillas</h3>
+                            <p>La expansión *The Old Hunters* confirmó parte del trasfondo, pero antes los fans ya especulaban sobre la 'maldición' que dio origen a la Pesadilla del Cazador. La teoría es que cuando los cazadores de Byrgenwerth mataron a Kos (un Gran inocente) y masacraron a su aldea, se generó una terrible maldición. Kos, agonizante, maldice 'para siempre' a los cazadores: sus almas quedarán atrapadas en un ciclo de pesadilla sangrienta. Esto se manifiesta en la Pesadilla del Cazador: un purgatorio donde Ludwig, Laurence y cía sufren sin fin. Cuando el jugador entra en ese reino y libera al Huérfano de Kos, la maldición se rompe (se escucha el susurro \"Ah... misericordia\"). La teoría extiende esto a la trama principal: la Pesadilla de Mensis, por ejemplo, pudo surgir por otra ofensa a los Grandes (el ritual blasfemo de Mensis). En Bloodborne, cada pesadilla parece ser un castigo por infringir las leyes cósmicas. La de Mensis por perturbar el descanso de Mergo, la del Cazador por la masacre de Kos. Por lo tanto, el jugador en ambos casos actúa como un \"exorcista\" que apacigua al espíritu vengativo (Kos y Yharnam respectivamente) al poner fin a sus desgraciados hijos (Huérfano y Mergo). Esta visión moral da cohesión al lore: las atrocidades humanas contra los Grandes resultaron en noches interminables y horrores, redimidos solo cuando un cazador arrepentido (el jugador) ejecuta una suerte de justicia poética.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -114,9 +198,21 @@
                  <li><a href="#hero">Volver Arriba</a></li>
             </ul>
             <p>Bloodborne™ © 2015 Sony Interactive Entertainment Inc. Desarrollado por FromSoftware, Inc.</p>
-            <p>Landing page no oficial creada por un fan. Estilo inspirado en la interfaz del juego.</p>
+            <p>Landing page no oficial creada por <a href="https://yeyobitz.dev">Yeyobitz.dev</a> </p>
+            <p>Estilo inspirado en la interfaz del juego.</p>
         </div>
     </footer>
+
+    <!-- Modal Structure (Initially Hidden) -->
+    <div id="infoModal" class="modal-overlay">
+        <div class="modal-content ui-panel">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h3 id="modalTitle">Título</h3>
+            <div id="modalBody">
+                <p>Contenido...</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Lightbox Structure -->
     <div class="lightbox-overlay" id="lightboxOverlay">
