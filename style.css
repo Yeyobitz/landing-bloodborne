@@ -21,12 +21,15 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 65px; /* Ajuste para navbar fija */
+    scrollbar-width: thin; /* Use "thin" for a less intrusive scrollbar */
+    scrollbar-color: var(--bb-highlight-red) var(--bb-bg-dark); /* thumb color track color */
 }
 
 body {
     margin: 0;
     padding: 20px; /* Add some padding around the menu */
     font-family: 'Lora', serif; /* Using Lora as a base, Cinzel for titles */
+    font-size: 16px; /* Added base font size */
     background-color: #1a1a1a; /* Dark background */
     color: #e0e0e0; /* Light grey text */
     /* Placeholder for background texture if found */
@@ -82,6 +85,15 @@ p {
     padding: 1.5rem;
     margin-bottom: 2rem;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+}
+
+/* --- Section Separator --- */
+hr.section-separator {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(85, 85, 85, 0), rgba(85, 85, 85, 0.75), rgba(85, 85, 85, 0)); /* Gradient based on bb-border-light */
+    margin: 4rem auto; /* Vertical and horizontal centering */
+    width: 60%; /* Don't span full width */
 }
 
 /* --- Navbar --- */
@@ -179,28 +191,29 @@ p {
     }
 }
 
-@media (max-width: 768px) {
+/* Remove redundant mobile styles from here */
+/* @media (max-width: 768px) {
     .navbar .container {
         flex-direction: column;
         gap: 0.8rem;
     }
     .navbar-logo {
-        margin-bottom: 0.5rem; /* Add space below logo */
+        margin-bottom: 0.5rem; // Add space below logo
     }
     .navbar-links {
          margin-top: 0.5rem;
-         gap: 0.8rem; /* Further reduce gap */
+         gap: 0.8rem; // Further reduce gap
          justify-content: center;
-         flex-wrap: wrap; /* Allow wrapping */
-         padding: 0 1rem; /* Add padding to prevent edge collision */
+         flex-wrap: wrap; // Allow wrapping
+         padding: 0 1rem; // Add padding to prevent edge collision
     }
      .navbar-links a {
-        font-size: 0.8rem; /* Even smaller on mobile */
+        font-size: 0.8rem; // Even smaller on mobile
         padding-bottom: 6px;
     }
 
     html {
-        scroll-padding-top: 110px; /* Increased padding for taller mobile navbar */
+        scroll-padding-top: 110px; // Increased padding for taller mobile navbar
     }
 }
 
@@ -209,20 +222,20 @@ p {
         font-size: 1.5rem;
     }
      .navbar-links {
-         gap: 0.6rem 1rem; /* Adjust horizontal/vertical gap */
+         gap: 0.6rem 1rem; // Adjust horizontal/vertical gap
     }
      .navbar-links a {
         font-size: 0.75rem;
     }
     html {
-        scroll-padding-top: 120px; /* Fine-tune for smallest screens */
+        scroll-padding-top: 120px; // Fine-tune for smallest screens
     }
-}
+} */
 
 /* --- Hero Section --- */
 #hero {
     min-height: 90vh; /* Un poco menos que 100vh para ver el scroll hint */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.205), rgba(0, 0, 0, 0.507)), url('public/images/hero-background.webp');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('public/images/hero-background.webp');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -237,6 +250,9 @@ p {
     border-bottom: 2px solid var(--bb-highlight-red); /* Borde inferior rojo */
     animation: fadeInHeroText 1.5s ease 0.8s forwards; /* Delay matches preloader fade */
     opacity: 0;
+    /* Add fade effect at sides */
+    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 @keyframes fadeInHeroText {
@@ -282,7 +298,6 @@ p {
 /* --- Secciones Lore y Galería --- */
 .content-section {
     padding: 3rem 0;
-     border-bottom: 1px solid var(--bb-border-light);
 }
 .content-section:last-of-type{
     border-bottom: none;
@@ -317,11 +332,18 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.205), rgba(0, 0, 0, 0.507)), url('public/images/lore-background.webp');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('public/images/lore-background.webp');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed; /* Make background fixed relative to viewport */
     z-index: -1; /* Place behind content */
+    /* Add fade effect at top/bottom and sides */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
+                 linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
+                         linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-composite: intersect; /* Combine masks */
+    -webkit-mask-composite: source-in; /* Safari/WebKit equivalent */
 }
 
 
@@ -471,7 +493,6 @@ table a {
         gap: 0.8rem;
     }
     .navbar-links {
-         margin-top: 0.5rem;
          gap: 1rem;
          justify-content: center;
          flex-wrap: wrap;
@@ -880,9 +901,14 @@ h2 {
   background: var(--bb-bg-dark);
 }
 .modal-content::-webkit-scrollbar-thumb {
-  background-color: var(--bb-border-light);
-  border-radius: 4px;
-  border: 2px solid var(--bb-bg-dark);
+  background-color: var(--bb-highlight-red); /* Red thumb */
+  border-radius: 0px; /* Sharp edges, fits the UI style better */
+  border: 1px solid var(--bb-bg-dark); /* Dark border around thumb for definition */
+  transition: background-color 0.2s ease;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: var(--bb-bg-dark); /* Darken on hover */
 }
 
 .modal-close {
@@ -1218,7 +1244,7 @@ h2 {
 #zonas {
     position: relative;
     overflow: hidden;
-    background-color: var(--bb-bg-dark);
+    background-color: var(--bb-bg-dark); /* Added for fallback */
     z-index: 0;
 }
 
@@ -1229,12 +1255,26 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.7)), url('https://cdnb.artstation.com/p/assets/images/images/001/210/358/large/james-paick-bloodborne-old-yharnam-concept-art-james-paick-01.jpg');
+    /* Replaced static image URL with the correct one */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('public/images/zones-background.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     z-index: -1;
-    opacity: 0.4;
+    opacity: 0.7; /* Increased opacity for better visibility */
+    /* Add fade effect at top/bottom and sides */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
+                 linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
+                         linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+}
+
+#zonas .container { /* Ensure content is above the ::before element */
+    position: relative;
+    z-index: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .zone-section-intro {
@@ -1264,48 +1304,11 @@ h2 {
     transform: translateY(0);
 }
 
-/* Staggered animation for each zone */
-.zone-grid .zone-item.reveal:nth-child(2).visible {
-    transition-delay: 0.1s;
-}
-
-.zone-grid .zone-item.reveal:nth-child(3).visible {
-    transition-delay: 0.2s;
-}
-
-.zone-grid .zone-item.reveal:nth-child(4).visible {
-    transition-delay: 0.3s;
-}
-
-.zone-grid .zone-item.reveal:nth-child(5).visible {
-    transition-delay: 0.4s;
-}
-
-.zone-grid .zone-item.reveal:nth-child(6).visible {
-    transition-delay: 0.5s;
-}
-
-.zone-grid .zone-item.reveal:nth-child(7).visible {
-    transition-delay: 0.6s;
-}
-
-.zone-grid .zone-item.reveal:nth-child(8).visible {
-    transition-delay: 0.7s;
-}
-
-.zone-grid .zone-item.reveal:nth-child(9).visible {
-    transition-delay: 0.8s;
-}
-
-.zone-grid .zone-item.reveal:nth-child(n+10).visible {
-    transition-delay: 0.9s;
-}
-
 /* --- Characters Section --- */
 #personajes {
     position: relative;
     overflow: hidden;
-    background-color: var(--bb-bg-dark);
+    background-color: var(--bb-bg-dark); /* Added for fallback */
     z-index: 0;
 }
 
@@ -1316,12 +1319,26 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.7)), url('https://i.imgur.com/RWEfxD7.jpg');
+    /* Replaced static image URL with the correct one */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('public/images/characters-background.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.7; /* Increased opacity for better visibility */
+    /* Add fade effect at top/bottom and sides */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
+                 linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%),
+                         linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+}
+
+#personajes .container { /* Ensure content is above the ::before element */
+    position: relative;
+    z-index: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .character-section-intro {
@@ -1484,43 +1501,6 @@ h2 {
     transform: translateY(0);
 }
 
-/* Staggered animation for each character */
-.character-grid .character-item.reveal:nth-child(2).visible {
-    transition-delay: 0.1s;
-}
-
-.character-grid .character-item.reveal:nth-child(3).visible {
-    transition-delay: 0.2s;
-}
-
-.character-grid .character-item.reveal:nth-child(4).visible {
-    transition-delay: 0.3s;
-}
-
-.character-grid .character-item.reveal:nth-child(5).visible {
-    transition-delay: 0.4s;
-}
-
-.character-grid .character-item.reveal:nth-child(6).visible {
-    transition-delay: 0.5s;
-}
-
-.character-grid .character-item.reveal:nth-child(7).visible {
-    transition-delay: 0.6s;
-}
-
-.character-grid .character-item.reveal:nth-child(8).visible {
-    transition-delay: 0.7s;
-}
-
-.character-grid .character-item.reveal:nth-child(9).visible {
-    transition-delay: 0.8s;
-}
-
-.character-grid .character-item.reveal:nth-child(n+10).visible {
-    transition-delay: 0.9s;
-}
-
 @media (max-width: 768px) {
     .character-grid {
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -1553,4 +1533,193 @@ h2 {
         padding: 0.4rem 0.8rem;
         font-size: 0.7rem;
     }
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Tablet View (<= 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 90%; /* Allow more fluid width */
+    }
+
+    .navbar-links {
+        /* Basic adjustment, might need a burger menu later */
+        gap: 15px; 
+    }
+
+    .hero-title {
+        font-size: 3.5rem; /* Slightly smaller title */
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .character-grid,
+    .zone-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust grid columns */
+        gap: 15px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust gallery columns */
+        gap: 15px;
+    }
+
+    .modal-content {
+        width: 80%;
+        max-width: 600px;
+    }
+}
+
+/* Mobile View (<= 768px) */
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 70px; /* Adjust scroll padding for new navbar height */
+    }
+
+    body {
+        font-size: 14px; /* Adjust base font size for smaller screens */
+    }
+
+    .navbar {
+        padding: 8px 0; /* Reduced padding */
+        position: fixed; /* Ensure it's fixed */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .navbar .container {
+        flex-direction: column; /* Stack logo and nav */
+        align-items: center;
+        gap: 5px; /* Reduced gap */
+    }
+
+    .navbar-logo {
+        font-size: 1.4rem; /* Smaller logo */
+        margin-bottom: 0; /* Remove bottom margin if gap is sufficient */
+    }
+
+    .navbar-links {
+        flex-wrap: wrap; /* Allow links to wrap */
+        justify-content: center;
+        font-size: 0.8rem; /* Smaller link font size */
+        gap: 5px 10px; /* Reduced gap for wrapped items */
+        padding-top: 5px; /* Reduced top padding */
+    }
+
+    #hero {
+        padding: 100px 0; /* Reduce hero padding */
+        min-height: auto; /* Adjust height */
+        margin-top: 70px; /* Ensure hero starts below the new smaller navbar */
+    }
+
+    .hero-title {
+        font-size: 2.5rem; /* Smaller title on mobile */
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        max-width: 90%;
+        margin-bottom: 25px;
+    }
+
+    .hero-cta {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .ui-panel {
+        padding: 20px;
+    }
+
+    .character-grid,
+    .zone-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Stack items in a single column */
+        gap: 20px;
+    }
+    
+    .theory-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .quote-carousel-wrapper {
+        padding: 0 30px; /* Ensure nav buttons don't overlap text */
+    }
+
+    .carousel-nav {
+        width: 25px;
+        height: 25px;
+        font-size: 1rem;
+    }
+
+    .footer-links {
+        flex-direction: column; /* Stack footer links */
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .modal-close {
+        right: 10px;
+        top: 10px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Make zone panel transparent */
+#zonas .ui-panel {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Make character panel transparent */
+#personajes .ui-panel {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+    height: 10px; /* Height of the scrollbar for horizontal */
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bb-bg-dark); /* Dark background for the track */
+    border-left: 1px solid var(--bb-border-light); /* Subtle border to match panels */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--bb-highlight-red); /* Red thumb */
+    border-radius: 0px; /* Sharp edges, fits the UI style better */
+    border: 1px solid var(--bb-bg-dark); /* Dark border around thumb for definition */
+    transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--bb-bg-dark); /* Darken on hover */
+}
+
+/* Basic Firefox Scrollbar Styling */
+/* Note: Firefox support for scrollbar styling is limited compared to WebKit */
+html {
+  scrollbar-width: thin; /* Use "thin" for a less intrusive scrollbar */
+  scrollbar-color: var(--bb-highlight-red) var(--bb-bg-dark); /* thumb color track color */
 }

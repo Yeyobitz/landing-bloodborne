@@ -7,7 +7,7 @@
 - [x] Definir paleta de colores gótica y tipografías temáticas.
 - [x] Diseñar y maquetar la estructura general de la página (Hero, Lore/Intro, Features, Media, CTA, Footer).
 - [x] Implementar la Hero Section con imagen/video de alto impacto y título principal.
-- [ ] Asegurar responsividad básica en desktop, tablet y móvil.
+- [x] Asegurar responsividad básica en desktop, tablet y móvil.
 - [ ] Establecer un flujo para optimizar imágenes (compresión, formatos web).
 
 ## Fase 2: Contenido Principal (Prioridad Media)

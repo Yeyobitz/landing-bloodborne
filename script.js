@@ -92,9 +92,9 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
         // }
     });
 }, {
-    root: null, // relative to document viewport 
-    rootMargin: '0px',
-    threshold: 0.1 // trigger animation when 10% of the element is visible
+    root: null, // relative to document viewport
+    rootMargin: '150px 0px 150px 0px', // Trigger when the element is 150px away from entering/leaving the viewport
+    threshold: 0 // Threshold becomes less important when rootMargin is set
 });
 
 revealElements.forEach(el => {
