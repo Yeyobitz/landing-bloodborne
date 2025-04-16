@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloodborne - Fear the Old Blood</title>
+    <meta name="description" content="Landing page no oficial del videojuego Bloodborne de FromSoftware, inspirada en la interfaz del juego.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/css/base.css">
+    <!-- Link to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-icon"></div> <!-- Placeholder for icon/animation -->
+    </div>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <a href="#hero" class="navbar-logo">BLOODBORNE</a> <!-- Logo en mayúsculas como en el juego -->
+            <nav>
+                <ul class="navbar-links">
+                    <li><a href="#hero" class="active">Inicio</a></li> <!-- Marcar inicio como activo por defecto -->
+                    <li><a href="#lore">Lore</a></li>
+                    <li><a href="#gallery">Galería</a></li>
+                    <!-- Añadir más si es necesario -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <!-- No usamos ui-panel aquí para tener fondo completo -->
+            <h1 class="hero-title">Fear the Old Blood</h1>
+            <p class="hero-subtitle">
+                La noche de la caza se cierne sobre Yharnam. Empuña tu Cuchilla Dentada,
+                desvela los secretos de la sangre y sobrevive a la pesadilla.
+            </p>
+            <a href="https://www.playstation.com/es-es/games/bloodborne/" target="_blank" rel="noopener noreferrer" class="hero-cta">Entra en la Caza</a>
+        </section>
+
+        <!-- Lore Section -->
+        <section id="lore" class="content-section reveal">
+            <div class="container">
+                <h2 class="section-title reveal">- LORE DE YHARNAM -</h2>
+                <div class="ui-panel reveal"> <!-- Panel para contener el texto del lore -->
+                    <h3 class="reveal">La Ciudad Maldita</h3>
+                    <p class="reveal">Yharnam, antaño célebre por su terapia de sangre milagrosa, ahora sucumbe a una plaga que transforma a sus habitantes en bestias. En esta noche interminable de Cacería, los Cazadores limpian las calles, pero horrores más profundos aguardan.</p>
+                    <h3 class="reveal">Los Grandes y la Iglesia</h3>
+                    <p class="reveal">La Iglesia de la Sanación, custodia de la sangre, busca conocimiento prohibido y la comunión con seres cósmicos conocidos como los Grandes. Sus experimentos han desatado fuerzas más allá de la comprensión humana, tejiendo una red de locura y revelaciones aterradoras.</p>
+                     <h3 class="reveal">El Sueño del Cazador</h3>
+                     <p class="reveal">Atrapado en el ciclo de la caza, encuentras refugio en el Sueño del Cazador, un nexo espectral. Guiado por la Muñeca y Gehrman, el Primer Cazador, debes desentrañar los misterios de Yharnam para hallar la forma de escapar... o trascender.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="content-section reveal">
+            <div class="container">
+                <h2 class="section-title reveal">- GALERÍA DE LA CACERÍA -</h2>
+                 <!-- Opcional: envolver la grid en un ui-panel si quieres un borde/fondo general -->
+                 <!-- <div class="ui-panel"> -->
+                    <div class="gallery-grid">
+                        <!-- Imágenes con borde y fondo estilo panel -->
+                        <div class="gallery-item reveal">
+                            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuM6ryYVQ8Ewr_qvdneDJ2LjS_OK06U3vAmfVa04Eyyzr_sSZ5anZL2n_ar4nPqvpz41VR0qPp68KVPnuHkzoE5U1d2V-n4QjBU-Gs7_EQI8UgMthL6fmDLn_CkzpoYWjOzaCIX9olQ-o/s1600/Central+Yharnam.png" class="gallery-link">
+                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuM6ryYVQ8Ewr_qvdneDJ2LjS_OK06U3vAmfVa04Eyyzr_sSZ5anZL2n_ar4nPqvpz41VR0qPp68KVPnuHkzoE5U1d2V-n4QjBU-Gs7_EQI8UgMthL6fmDLn_CkzpoYWjOzaCIX9olQ-o/s1600/Central+Yharnam.png" alt="Yharnam Central">
+                            </a>
+                        </div>
+                        <div class="gallery-item reveal">
+                             <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLc2WB6Y200BRn5CT5ZjDgMqndi169iTor1vLY5tdfm1XWc7pV5vYZ_qkRMTnSzNmsrHXbgiaAmtZRfbJBSOWHhzyYp7gtYC3tJTEp8dFuj_R1Qn8z3igPg2GNBXfqqEStLR7zeWnBpBI/s1600/02+-+Father+Gascoigne.jpg">
+                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLc2WB6Y200BRn5CT5ZjDgMqndi169iTor1vLY5tdfm1XWc7pV5vYZ_qkRMTnSzNmsrHXbgiaAmtZRfbJBSOWHhzyYp7gtYC3tJTEp8dFuj_R1Qn8z3igPg2GNBXfqqEStLR7zeWnBpBI/s1600/02+-+Father+Gascoigne.jpg" alt="Padre Gascoigne">
+                             </a>
+                        </div>
+                        <div class="gallery-item reveal">
+                            <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMgIdS32LhY71eJFh7w3lGhyphenhyphend77P0xVkducfB-FbserQQNKXhBuMMTmUMmsYNob6UuKrjG1ygyjyI_mRJxopyRXc9FlbEwSswr77RVe5qztoC1f2tXPMPxhEeZpU0xeDIIxdUfjCaM7Kw/s1600/16+-+Celestial+Emissary.jpg" class="gallery-link">
+                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMgIdS32LhY71eJFh7w3lGhyphenhyphend77P0xVkducfB-FbserQQNKXhBuMMTmUMmsYNob6UuKrjG1ygyjyI_mRJxopyRXc9FlbEwSswr77RVe5qztoC1f2tXPMPxhEeZpU0xeDIIxdUfjCaM7Kw/s1600/16+-+Celestial+Emissary.jpg" alt="Emisario Celestial en la Catedral Superior">
+                            </a>
+                        </div>
+                        <div class="gallery-item reveal">
+                             <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnbDIG2CvH2U9BokUVW1GvtYGLPnCWTrzyC7WS2EiTe4aPVqH_6KJN2VVJSlWdguaDdh8NgQ9raNL7_jgyA_kxuj5dh6pchlPkpFXCCSabroIR2hbJU6ydjbhw8Z7B6K2RvLUwJIDr0Dk/s1600/01+-+Cleric+Beast.jpg" class="gallery-link">
+                                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnbDIG2CvH2U9BokUVW1GvtYGLPnCWTrzyC7WS2EiTe4aPVqH_6KJN2VVJSlWdguaDdh8NgQ9raNL7_jgyA_kxuj5dh6pchlPkpFXCCSabroIR2hbJU6ydjbhw8Z7B6K2RvLUwJIDr0Dk/s1600/01+-+Cleric+Beast.jpg" alt="Clérigo Bestia">
+                             </a>
+                        </div>
+                         <div class="gallery-item reveal">
+                            <a href="https://static1.thegamerimages.com/wordpress/wp-content/uploads/2020/08/Nightmare-Of-Mensis-Bloodborne.jpg" class="gallery-link">
+                                <img src="https://static1.thegamerimages.com/wordpress/wp-content/uploads/2020/08/Nightmare-Of-Mensis-Bloodborne.jpg" alt="Paisaje de la Pesadilla de Mensis">
+                            </a>
+                        </div>
+                         <div class="gallery-item reveal">
+                             <a href="https://bloodborne.wiki.fextralife.com/file/Bloodborne/Lesser%20Amygdala%20Grab.jpg" class="gallery-link">
+                                <img src="https://bloodborne.wiki.fextralife.com/file/Bloodborne/Lesser%20Amygdala%20Grab.jpg" alt="Amygdala en el Distrito de la Catedral">
+                             </a>
+                        </div>
+                    </div>
+                 <!-- </div> -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="reveal">
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="https://www.playstation.com/es-es/games/bloodborne/" target="_blank" rel="noopener noreferrer">Página Oficial</a></li>
+                <li><a href="https://www.fromsoftware.jp/ww/" target="_blank" rel="noopener noreferrer">FromSoftware</a></li>
+                 <li><a href="#hero">Volver Arriba</a></li>
+            </ul>
+            <p>Bloodborne™ © 2015 Sony Interactive Entertainment Inc. Desarrollado por FromSoftware, Inc.</p>
+            <p>Landing page no oficial creada por un fan. Estilo inspirado en la interfaz del juego.</p>
+        </div>
+    </footer>
+
+    <!-- Lightbox Structure -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightboxClose">&times;</span>
+            <img src="" alt="Imagen Ampliada" id="lightboxImage">
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>

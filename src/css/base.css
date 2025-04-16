@@ -1,0 +1,53 @@
+/* Basic Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Define Color Palette and Fonts */
+:root {
+  /* Colors */
+  --color-background-dark: #1a1a1a;
+  --color-background-medium: #333333;
+  --color-text-primary: #e0dcd0;
+  --color-text-secondary: #a0a0a0;
+  --color-accent-blood: #8a0303;
+  --color-accent-highlight: #a8905d;
+
+  /* Fonts */
+  --font-heading: 'Cinzel Decorative', serif;
+  --font-body: 'Lato', sans-serif;
+
+  /* Base Font Size */
+  --font-size-base: 16px;
+}
+
+/* Apply Base Styles */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background-dark);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary); /* Or adjust as needed */
+  margin-bottom: 0.75em;
+}
+
+a {
+  color: var(--color-accent-highlight);
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+}
+
+/* Add Google Font Imports (ensure index.html includes the link) */
+/* Example: @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lato:wght@400;700&display=swap'); */
+/* It's generally better to link fonts in the HTML <head> for performance. */ 

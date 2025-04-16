@@ -1,0 +1,741 @@
+/* --- Variables de Color y Fuentes (Inspirado en UI Bloodborne) --- */
+:root {
+    --bb-bg-dark: #1a1a1a; /* Fondo general oscuro */
+    --bb-bg-panel: #2a2a2a; /* Fondo de los paneles/cajas */
+    --bb-border-light: #555555; /* Borde sutil de paneles */
+    --bb-text-primary: #e0e0e0; /* Texto principal claro */
+    --bb-text-secondary: #aaaaaa; /* Texto secundario/menos importante */
+    --bb-highlight-red: #a71d2a; /* Rojo sangre característico */
+    --bb-highlight-red-hover: #c82a3a; /* Rojo más brillante para hover */
+    --bb-font-serif: 'Times New Roman', Times, serif; /* Fuente principal estilo gótico/antiguo */
+    --bb-font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente secundaria (opcional) */
+}
+
+/* --- Reset Básico y Estilos Globales --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 65px; /* Ajuste para navbar fija */
+}
+
+body {
+    margin: 0;
+    padding: 20px; /* Add some padding around the menu */
+    font-family: 'Lora', serif; /* Using Lora as a base, Cinzel for titles */
+    background-color: #1a1a1a; /* Dark background */
+    color: #e0e0e0; /* Light grey text */
+    /* Placeholder for background texture if found */
+    /* background-image: url('path/to/texture.png'); */
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--bb-highlight-red);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--bb-highlight-red-hover);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--bb-font-serif);
+    color: var(--bb-text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra sutil como en UI */
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.4rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--bb-text-secondary); /* Texto de párrafo un poco más tenue */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- Paneles estilo UI --- */
+.ui-panel {
+    background-color: var(--bb-bg-panel);
+    border: 1px solid var(--bb-border-light); /* Slightly lighter border like wiki panels */
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+}
+
+/* --- Navbar --- */
+.navbar {
+    background-color: rgba(26, 26, 26, 0.9); /* Fondo oscuro semi-transparente */
+    border-bottom: 1px solid var(--bb-border-light);
+    padding: 0.8rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--bb-text-primary);
+    text-shadow: 1px 1px 3px var(--bb-highlight-red); /* Sutil brillo rojo */
+}
+ .navbar-logo:hover {
+    color: var(--bb-text-primary);
+ }
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-links a {
+    color: var(--bb-text-secondary);
+    font-weight: normal; /* Texto de enlaces más fino */
+    font-size: 0.95rem;
+    padding-bottom: 5px; /* Espacio para el borde inferior */
+    border-bottom: 2px solid transparent; /* Borde invisible inicial */
+    transition: color 0.3s ease, border-color 0.3s ease;
+    position: relative; /* For pseudo-element */
+}
+
+.navbar-links a:hover,
+.navbar-links a.active { /* Estilo activo/hover imita pestaña seleccionada */
+    color: var(--bb-text-primary);
+    border-bottom-color: var(--bb-highlight-red);
+}
+
+.navbar-links a::after { /* Underline grow effect */
+    content: '';
+    position: absolute;
+    bottom: 3px; /* Align with border-bottom */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--bb-highlight-red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+.navbar-links a:hover::after,
+.navbar-links a.active::after {
+    transform: scaleX(1);
+}
+
+ /* --- Hero Section --- */
+ #hero {
+    min-height: 90vh; /* Un poco menos que 100vh para ver el scroll hint */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.205), rgba(0, 0, 0, 0.507)), url('public/images/hero-background.webp');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem 2rem 1rem;
+    margin-top: 3rem;
+    color: var(--bb-text-primary);
+    border-bottom: 2px solid var(--bb-highlight-red); /* Borde inferior rojo */
+    animation: fadeInHeroText 1.5s ease 0.8s forwards; /* Delay matches preloader fade */
+    opacity: 0;
+ }
+
+ @keyframes fadeInHeroText {
+    to {
+        opacity: 1;
+    }
+}
+
+ .hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+ }
+
+ .hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--bb-text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 650px;
+ }
+
+ .hero-cta {
+    display: inline-block;
+    background-color: var(--bb-highlight-red);
+    color: var(--bb-text-primary);
+    padding: 0.8rem 2rem;
+    font-family: var(--bb-font-serif); /* Usar serif para botón también */
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 1px solid var(--bb-border-light); /* Borde sutil */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+ }
+
+ .hero-cta:hover {
+    background-color: var(--bb-highlight-red-hover);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 12px rgba(167, 29, 42, 0.4); /* Red glow shadow */
+ }
+
+/* --- Secciones Lore y Galería --- */
+.content-section {
+    padding: 3rem 0;
+     border-bottom: 1px solid var(--bb-border-light);
+}
+.content-section:last-of-type{
+    border-bottom: none;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    color: var(--bb-text-primary);
+}
+
+/* --- Lore Section --- */
+#lore {
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.205), rgba(0, 0, 0, 0.507)), url('public/images/lore-background.webp'); */
+    /* background-size: cover; */
+    /* background-position: center center; */
+    /* background-attachment: fixed; */
+    position: relative; /* Needed for pseudo-element positioning */
+    overflow: hidden; /* Contain the pseudo-element */
+    z-index: 0; /* Establish stacking context */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#lore::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.205), rgba(0, 0, 0, 0.507)), url('public/images/lore-background.webp');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Make background fixed relative to viewport */
+    z-index: -1; /* Place behind content */
+}
+
+
+#lore .container { /* Ensure content is above the ::before element */
+    position: relative;
+    z-index: 1;
+}
+
+#lore .ui-panel {
+     background-color: rgba(0, 0, 0, 0.5);
+     max-width: 850px; /* Limitar ancho del panel de lore */
+     margin-left: auto;
+     margin-right: auto;
+     /* position: relative; z-index: 1; If .container wasn't used, this would be needed */
+}
+
+#lore h3 {
+    color: var(--bb-text-primary);
+    margin-bottom: 0.8rem;
+}
+#lore p {
+     font-size: 0.95rem; /* Ligeramente más pequeño para densidad */
+     line-height: 1.7;
+     color: var(--bb-text-secondary);
+}
+
+/* --- Gallery Section --- */
+ #gallery .ui-panel { /* Panel contenedor opcional para la galería */
+      background-color: transparent; /* Sin fondo extra si solo contiene la grid */
+      border: none;
+      box-shadow: none;
+      padding: 0; /* Sin padding extra si es solo contenedor */
+ }
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    border: 1px solid var(--bb-border-light);
+    background-color: var(--bb-bg-panel); /* Fondo para cada item */
+    overflow: hidden; /* Para que la imagen no se salga */
+    transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item img {
+   width: 100%;
+   height: 200px; /* Altura fija para las imágenes */
+   object-fit: cover; /* Escala y recorta para llenar el espacio */
+   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother ease */
+}
+
+.gallery-item:hover {
+    border-color: var(--bb-highlight-red-hover);
+    transform: translateY(-8px) scale(1.02); /* Slightly larger lift */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+.gallery-item:hover img{
+     transform: scale(1.1); /* Slightly increased zoom */
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: #111111; /* Fondo muy oscuro */
+    color: var(--bb-text-secondary);
+    text-align: center;
+    padding: 2.5rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid var(--bb-border-light);
+    font-size: 0.85rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 12px;
+}
+
+.footer-links a {
+    color: var(--bb-text-secondary);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.footer-links a:hover {
+    color: var(--bb-highlight-red-hover);
+    text-shadow: 0 0 5px var(--bb-highlight-red); /* Subtle glow */
+}
+footer p {
+    color: #777; /* Copyright aún más tenue */
+    font-size: 0.8rem;
+     margin-bottom: 0.5rem;
+}
+
+/* --- Table Styles (Inspired by bloodborne-wiki.com) --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    background-color: var(--bb-bg-panel); /* Match panel background */
+    border: 1px solid var(--bb-border-light);
+    font-size: 0.9rem;
+    color: var(--bb-text-secondary);
+}
+
+th, td {
+    border: 1px solid var(--bb-border-light);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: rgba(10, 10, 10, 0.5); /* Darker header */
+    color: var(--bb-text-primary);
+    font-family: var(--bb-font-serif); /* Use serif for headers */
+    font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.03); /* Subtle striping */
+}
+
+tbody tr:hover {
+     background-color: rgba(var(--bb-highlight-red-rgb, 167, 29, 42), 0.1); /* Subtle red highlight on hover */
+     color: var(--bb-text-primary);
+}
+
+table a {
+    font-weight: bold; /* Make links in tables stand out slightly */
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    .hero-title { font-size: 2.8rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+
+    .navbar .container {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .navbar-links {
+         margin-top: 0.5rem;
+         gap: 1rem;
+         justify-content: center;
+         flex-wrap: wrap;
+    }
+
+    html {
+        scroll-padding-top: 100px; /* Ajuste mayor para navbar móvil */
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Más pequeñas en tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.6rem; }
+    .hero-title { font-size: 2.2rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .hero-cta { padding: 0.7rem 1.5rem; font-size: 1rem; }
+
+    .container { padding: 0 1rem; }
+    .content-section { padding: 2rem 0; }
+    .section-title { font-size: 1.8rem; }
+
+     .gallery-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+     }
+      .gallery-item img {
+         height: 180px;
+     }
+}
+
+/* --- Lightbox Styles --- */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Más oscuro para foco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+    padding: 1rem;
+}
+
+.lightbox-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox-overlay.visible .lightbox-content {
+     animation: scaleInLightbox 0.4s ease forwards;
+}
+
+@keyframes scaleInLightbox {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background-color: var(--bb-bg-panel);
+    border: 1px solid var(--bb-border-light);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    padding: 1rem; /* Padding alrededor de la imagen */
+}
+
+.lightbox-content img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(90vh - 60px); /* Ajustar a altura de viewport menos padding y controles */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.lightbox-overlay.visible .lightbox-content img {
+    opacity: 1;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: var(--bb-highlight-red);
+    color: var(--bb-text-primary);
+    border: 1px solid var(--bb-border-light);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+    line-height: 33px; /* Centrar la 'X' */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.lightbox-close:hover {
+    background-color: var(--bb-highlight-red-hover);
+    transform: scale(1.1);
+}
+
+/* Layout */
+.menu-container {
+    display: flex;
+    gap: 20px;
+    max-width: 1000px; /* Adjust as needed */
+    margin: auto;
+    background-color: var(--bb-bg-panel);
+    padding: 15px;
+    border: 1px solid var(--bb-border-light);
+    /* Add more complex border styling later */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.panel {
+    flex: 1;
+    padding: 15px;
+    border: 1px solid var(--bb-border-light);
+    background-color: rgba(10, 10, 10, 0.5); /* Slightly darker inner panel */
+}
+
+.panel-left {
+    flex-basis: 50%; /* Adjust ratio as needed */
+}
+
+.panel-right {
+    flex-basis: 50%;
+}
+
+/* Typography */
+h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--bb-text-primary);
+    font-weight: 700;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--bb-border-light); /* Title underline */
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.quick-item-selector {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--bb-border-light);
+    background-color: var(--bb-bg-dark);
+    text-align: center;
+    font-family: 'Cinzel', serif;
+}
+
+/* Item List Styling */
+.item-list {
+    margin-top: 15px;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 8px;
+    margin-bottom: 5px;
+    border: 1px solid transparent; /* Base border */
+    border-left: 3px solid var(--bb-border-light); /* Left accent border */
+    background-color: rgba(45, 45, 45, 0.7);
+    position: relative; /* For positioning count */
+}
+
+.list-item.selected {
+    background-color: var(--bb-highlight-red);
+    border: 1px solid var(--bb-highlight-red);
+    border-left: 3px solid var(--bb-highlight-red);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.item-icon {
+    /* Placeholder styling - replace with actual icons */
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #444;
+    margin-right: 10px;
+    font-size: 0.7em; /* Smaller text for placeholders */
+    color: #ccc;
+    border: 1px solid #555;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-weight: bold;
+    color: var(--bb-text-primary);
+    font-size: 1.1em;
+}
+
+.item-desc {
+    color: var(--bb-text-secondary);
+    font-size: 0.9em;
+}
+
+.item-count {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--bb-text-primary);
+    text-shadow: 1px 1px 2px black;
+    /* In the image, counts seem to be over the icon or top right of the item */
+    /* Adjust positioning based on icon implementation */
+}
+
+.item-count-red {
+    color: var(--bb-highlight-red);
+}
+
+.item-count-yellow {
+    color: var(--bb-highlight-red);
+}
+
+
+/* Right Panel Styling */
+.section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid var(--bb-border-light);
+    background-color: rgba(20, 20, 20, 0.4);
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 1em;
+}
+
+.stat-label {
+    color: var(--bb-text-secondary);
+    /* Add icon styling later */
+}
+
+.stat-value {
+    color: var(--bb-text-primary);
+    font-weight: bold;
+}
+
+.stat-value-orange {
+    color: var(--bb-highlight-red);
+    /* Add icon if needed */
+}
+
+.rune-slots {
+    /* Placeholder for rune icons */
+    text-align: center;
+    padding: 10px;
+    color: var(--bb-text-secondary);
+}
+
+/* Footer Controls Placeholder */
+.footer-controls {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid var(--bb-border-light);
+    color: var(--bb-text-secondary);
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* --- Preloader --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bb-bg-dark);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.8s ease 0.5s; /* Fade out transition */
+}
+
+.loader-icon {
+    /* Simple spinner for now, can be replaced with SVG/image */
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--bb-border-light);
+    border-top-color: var(--bb-highlight-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0s linear 0.8s;
+}
+
+
+/* --- Scroll Animations --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+    will-change: opacity, transform; /* Performance hint */
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
